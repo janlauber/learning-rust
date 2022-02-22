@@ -1,8 +1,8 @@
 FROM rust:1.58.0 as build
 
 # create a new empty shell project
-RUN USER=root cargo new --bin app
-WORKDIR /app
+RUN USER=root cargo new --bin fundamentals
+WORKDIR /fundamentals
 
 # copy over your manifests
 COPY ./Cargo.lock ./Cargo.lock
@@ -16,14 +16,14 @@ RUN rm src/*.rs
 COPY ./src ./src
 
 # build for release
-RUN rm ./target/release/deps/app*
+RUN rm ./target/release/deps/fundamentals*
 RUN cargo build --release
 
 # our final base
 FROM rust:1.58.0
 
 # copy the build artifact from the build stage
-COPY --from=build /app/target/release/app .
+COPY --from=build /fundamentals/target/release/fundamentals .
 
 # set the startup command to run your binary
-CMD ["./app"]
+CMD ["./fundamentals"]
