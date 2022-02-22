@@ -30,10 +30,7 @@ fn main() {
 
     // ARRAY
     let arr: [u8; 5] = [0, 1, 2, 3, 4];
-    for el in arr.iter() {
-        println!("{},", el);
-    }
-    println!("{}", arr[2]);
+    
 
     // STATEMENTS
     {
@@ -44,6 +41,39 @@ fn main() {
     // FUNCTIONS
     func(2);
     println!("{}", answer1(4,10));
+
+    // EXPRESSIONS
+    let everything: bool = true;
+    let answer = if everything { 42 } else { -1 };
+    println!("expression answer: {}", answer);
+
+    // LOOP
+    let mut i: i32 = 0;
+    loop {
+        if i <= 2 {
+            println!("Get me {} coffee.", i);
+            i += 1
+        } else {
+            break
+        }
+    }
+
+    // WHILE
+    let mut x = u8::MAX;
+    while i != 0 {
+        x -= 1;
+
+        if x == 42 {
+            println!("The answer is: 42");
+            break;
+        }
+    }
+
+    // FOR
+    for el in arr.iter() {
+        print!("{},", el);
+    }
+    println!("\n{}", arr[2]);
 }
 
 // FUNCTIONS
