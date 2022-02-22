@@ -74,6 +74,13 @@ fn main() {
         print!("{},", el);
     }
     println!("\n{}", arr[2]);
+
+    let arr = [0, 1, 2];
+    let mut index = 0; 
+    while index < arr.len() {
+        println!("element: {}", arr[index]);
+        index += 1
+    }
 }
 
 // FUNCTIONS
